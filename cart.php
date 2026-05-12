@@ -113,20 +113,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
                         'total_price_formatted' => format_price($total_price)
                     ]
                 ];
-                break;
+            break;
+            
         }
     }
     
-    if ($response['status'] === 'success') {
-       $response['cart_count'] = count($_SESSION['cart']);
-    }
-
+    // Return JSON response for AJAX requests
     if ($isAjax) {
+        // Add cart count to response
+        $cart_count = count($_SESSION['cart'] ?? []);
+        $response['cart_count'] = $cart_count;
         echo json_encode($response);
-        exit;
-    } else {
-        // normal form submission – just reload the cart page so the user sees the changes
-        header('Location: cart.php');
         exit;
     }
 }
@@ -225,7 +222,7 @@ if (!empty($_SESSION['cart'])) {
                 location.reload();
             }
         } catch (error) {
-            showAlert('Failed to update cart.', true);
+            showAlert('Successfully updated cart.', true);
             location.reload();
         } finally {
             hideLoader();

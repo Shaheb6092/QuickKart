@@ -9,7 +9,7 @@ $slides_data = $slides_stmt->fetchAll();
 
 
 // ডাটাবেস থেকে ডেটা আনা
-// শপ বাই ক্যাটাগরি (৮টি দেখানো হবে)
+// শপ বাই ক্যাটাগরি (16টি দেখানো হবে)
 $stmt_cat = $pdo->query("SELECT id, name, image FROM categories ORDER BY name ASC LIMIT 16");
 $categories = $stmt_cat->fetchAll();
 
@@ -232,9 +232,11 @@ $featured_products = $stmt_featured->fetchAll();
                 }
             } else {
                 showAlert(result.message || 'Failed to add to cart.', true);
+                location.reload();
             }
         } catch (error) {
             showAlert('An error occurred.', true);
+            location.reload();
         } finally {
             hideLoader();
         }
