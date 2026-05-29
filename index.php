@@ -28,6 +28,19 @@ $featured_products = $stmt_featured->fetchAll();
 <?php require_once 'common/sidebar.php'; ?>
 
 
+<head>
+    <style>
+    /* Hide scrollbar for Chrome, Safari, Opera */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    /* Hide scrollbar for IE, Edge, Firefox */
+    .no-scrollbar {
+      -ms-overflow-style: none;  /* IE and Edge */
+      scrollbar-width: none;     /* Firefox */
+    }
+  </style>
+</head>
 
 <main class="p-4 bg-white">
     <!-- প্রমোশনাল ব্যানার -->
@@ -78,9 +91,9 @@ $featured_products = $stmt_featured->fetchAll();
     <section class="mb-8">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-lg font-bold text-gray-800">Shop by Category</h2>
-            <a href="" class="text-sm font-medium text-indigo-600">View All</a>
+            <!-- <a href="" class="text-sm font-medium text-indigo-600">View All</a> -->
         </div>
-        <div class="flex space-x-4 overflow-hidden pb-2">
+        <div class="flex space-x-4 overflow-x-auto no-scrollbar pb-2">
             <?php foreach ($categories as $category): ?>
             <a href="product.php?cat_id=<?= $category['id'] ?>" class="flex-shrink-0 text-center space-y-2 w-20">
                 <div class="w-16 h-16 mx-auto bg-white rounded-full shadow-md flex items-center justify-center p-1">
@@ -96,7 +109,6 @@ $featured_products = $stmt_featured->fetchAll();
     <section class="mb-8">
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-lg font-bold text-gray-800 flex items-center"><i class="fas fa-fire-alt text-red-500 mr-2"></i>Trending Now</h2>
-            <a href="#" class="text-sm font-medium text-indigo-600">View All</a>
         </div>
         <div class="grid grid-cols-2 gap-4">
             <?php foreach ($trending_products as $product): ?>
@@ -112,7 +124,6 @@ $featured_products = $stmt_featured->fetchAll();
     <section>
         <div class="flex justify-between items-center mb-4">
             <h2 class="text-lg font-bold text-gray-800">Featured Products</h2>
-            <a href="#" class="text-sm font-medium text-indigo-600">View All</a>
         </div>
         <div class="grid grid-cols-2 gap-4">
             <?php foreach ($featured_products as $product): ?>
