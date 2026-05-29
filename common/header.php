@@ -20,8 +20,8 @@
    
     <!-- FAVICONS: added so favicon appears on all pages -->
     <link rel="apple-touch-icon" sizes="180x180" href="./favicon/logo3.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/logo3.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/logo3.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon/logo2.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="./favicon/logo1.png">
     <link rel="shortcut icon" href="./favicon/logo3.png">
     <link rel="manifest" href="./favicon/logo3.png">
     <link rel="mask-icon" href="./favicon/logo3.png" color="#5bbad5">
